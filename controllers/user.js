@@ -16,6 +16,7 @@ const register = async (req, res) => {
     phoneNumber,
     leftoverAvailable,
   } = req.body;
+  console.log(req.body);
   try {
     const user = await User.findOne({ email: email });
     if (user) return res.status(400).json({ msg: "User already exists" });
@@ -34,19 +35,17 @@ const register = async (req, res) => {
     });
     await newUser.save();
     const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET);
-    res
-      .status(200)
-      .json({
-        email: newUser.email,
-        fullname: newUser.fullname,
-        state: newUser.state,
-        city: newUser.city,
-        restaurantName: newUser.restaurantName,
-        country: newUser.country,
-        address: newUser.address,
-        leftoverAvailable: newUser.leftoverAvailable,
-        token: token,
-      });
+    res.status(200).json({
+      email: newUser.email,
+      fullname: newUser.fullname,
+      state: newUser.state,
+      city: newUser.city,
+      restaurantName: newUser.restaurantName,
+      country: newUser.country,
+      address: newUser.address,
+      leftoverAvailable: newUser.leftoverAvailable,
+      token: token,
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ msg: error.message });
