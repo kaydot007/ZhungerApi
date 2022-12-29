@@ -4,12 +4,10 @@ const userSchema = mongoose.Schema({
   fullname: {
     type: String,
     required: true,
-    unique: true,
   },
- state: {
+  state: {
     type: String,
     required: true,
-    unique: true,
   },
   email: {
     type: String,
@@ -19,7 +17,6 @@ const userSchema = mongoose.Schema({
   city: {
     type: String,
     required: true,
-    unique: true,
   },
   restaurantName: {
     type: String,
@@ -29,17 +26,14 @@ const userSchema = mongoose.Schema({
   country: {
     type: String,
     required: true,
-    unique: true,
   },
   uploadRestaurantPhoto: {
     type: String,
     required: true,
-    unique: true,
   },
   address: {
     type: String,
     required: true,
-    unique: true,
   },
   password: {
     type: String,
@@ -49,14 +43,11 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-
   },
   leftoverAvailable: {
     type: Boolean,
     default: false,
   },
- 
- 
 });
 
 const User = mongoose.model("User", userSchema);
