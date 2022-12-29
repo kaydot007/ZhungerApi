@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
-  Fullname: {
+  fullname: {
     type: String,
     required: true,
     unique: true,
   },
- State: {
+ state: {
     type: String,
     required: true,
     unique: true,
@@ -16,27 +16,27 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  City: {
+  city: {
     type: String,
     required: true,
     unique: true,
   },
-  RestaurantName: {
+  restaurantName: {
     type: String,
     required: true,
     unique: true,
   },
-  Country: {
+  country: {
     type: String,
     required: true,
     unique: true,
   },
-  UploadRestaurantPhoto: {
+  uploadRestaurantPhoto: {
     type: String,
     required: true,
     unique: true,
   },
-  Address: {
+  address: {
     type: String,
     required: true,
     unique: true,
@@ -45,7 +45,7 @@ const userSchema = mongoose.Schema({
     type: String,
   },
 
-  PhoneNumber: {
+  phoneNumber: {
     type: String,
     required: true,
     unique: true,

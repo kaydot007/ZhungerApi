@@ -4,16 +4,16 @@ const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   const {
-    Fullname,
-    State,
+    fullname,
+    state,
     email,
-    City,
-    RestaurantName,
-    Country,
-    UploadRestaurantPhoto,
-    Address,
+    city,
+    restaurantName,
+    country,
+    uploadRestaurantPhoto,
+    address,
     password,
-    PhoneNumber,
+    phoneNumber,
     leftoverAvailable,
   } = req.body;
   try {
@@ -21,15 +21,15 @@ const register = async (req, res) => {
     if (user) return res.status(400).json({ msg: "User already exists" });
     const newUser = new User({
       email: email,
-      Fullname: Fullname,
-      State: State,
-      City: City,
-      RestaurantName: RestaurantName,
-      Country: Country,
-      UploadRestaurantPhoto: UploadRestaurantPhoto,
-      Address: Address,
+      fullname: fullname,
+      state: state,
+      city: city,
+      restaurantName: restaurantName,
+      country: country,
+      uploadRestaurantPhoto: uploadRestaurantPhoto,
+      address: address,
       password: password,
-      PhoneNumber: PhoneNumber,
+      phoneNumber: phoneNumber,
       leftoverAvailable: leftoverAvailable,
     });
     await newUser.save();
@@ -38,12 +38,12 @@ const register = async (req, res) => {
       .status(200)
       .json({
         email: newUser.email,
-        Fullname: newUser.Fullname,
-        State: newUser.State,
-        City: newUser.City,
-        RestaurantName: newUser.RestaurantName,
-        Country: newUser.Country,
-        Address: newUser.Address,
+        fullname: newUser.fullname,
+        state: newUser.state,
+        city: newUser.city,
+        restaurantName: newUser.restaurantName,
+        country: newUser.country,
+        address: newUser.address,
         leftoverAvailable: newUser.leftoverAvailable,
         token: token,
       });
